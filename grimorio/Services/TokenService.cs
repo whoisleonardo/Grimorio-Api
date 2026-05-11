@@ -6,6 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace GrimorioDigital.Services;
 
+// X: aqui rola a mágica da autenticação
 public class TokenService
 {
     private readonly IConfiguration _config;

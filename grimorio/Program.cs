@@ -6,22 +6,14 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
+// TODO Leo: não esqueça de validar a chave JWT nas secrets
 var builder = WebApplication.CreateBuilder(args);
 
-// ──────────────────────────────────────────
-// 1. Controllers
-// ──────────────────────────────────────────
 builder.Services.AddControllers();
-
-// ──────────────────────────────────────────
-// 2. Entity Framework Core (SQLite)
-// ──────────────────────────────────────────
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ──────────────────────────────────────────
-// 3. JWT Authentication
-// ──────────────────────────────────────────
+// X: não mude o tempo de expiração do token sem avisar!!!
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 var jwtIssuer = builder.Configuration["Jwt:Issuer"]!;
 var jwtAudience = builder.Configuration["Jwt:Audience"]!;
@@ -118,7 +110,7 @@ using (var scope = app.Services.CreateScope())
 }
 
 // ──────────────────────────────────────────
-// Pipeline
+// Pipeline 
 // ──────────────────────────────────────────
 if (app.Environment.IsDevelopment())
 {

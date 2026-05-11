@@ -20,9 +20,7 @@ public class AuthController : ControllerBase
         _tokenService = tokenService;
     }
 
-    /// <summary>
-    /// Realiza login e retorna um token JWT
-    /// </summary>
+    // Leo: se isso quebrar, toda a autenticação cai. Por favor, teste bem!
     [HttpPost("login")]
     [ProducesResponseType(typeof(TokenResponseDto), 200)]
     [ProducesResponseType(401)]
