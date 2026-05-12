@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using GrimorioDigital.DTOs;
 
 namespace GrimorioDigital.DTOs;
 
@@ -57,12 +58,4 @@ public class MagiaResponseDto
     public string TipoAlvo { get; set; } = string.Empty;
     public int EscolaDeMagiaId { get; set; }
     public EscolaDeMagiaResponseDto? EscolaDeMagia { get; set; }
-}
-
-public class EscolaDeMagiaResponseDto
-{
-    public int Id { get; set; }
-    public string Nome { get; set; } = string.Empty;
-    public string Descricao { get; set; } = string.Empty;
-    public string Elemento { get; set; } = string.Empty;
 }

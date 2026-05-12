@@ -51,15 +51,21 @@ public class AppDbContext : DbContext
             .OnDelete(DeleteBehavior.Cascade);
 
         modelBuilder.Entity<EscolaDeMagia>().HasData(
-            new EscolaDeMagia { Id = 1, Nome = "Evocação", Descricao = "Magias de invocação de elementos", Elemento = "Fogo" },
-            new EscolaDeMagia { Id = 2, Nome = "Necromancia", Descricao = "Magias relacionadas à morte e não-mortos", Elemento = "Sombra" },
-            new EscolaDeMagia { Id = 3, Nome = "Ilusão", Descricao = "Magias de engano e ilusão", Elemento = "Arcano" }
+            new EscolaDeMagia { Id = 1, Nome = "Evocação", Descricao = "Escola de magia focada na invocação de seres e elementos poderosos do plano astral", Elemento = "Fogo" },
+            new EscolaDeMagia { Id = 2, Nome = "Necromancia", Descricao = "Escola que manipula as forças da morte e controla criaturas não-mortas", Elemento = "Sombra" },
+            new EscolaDeMagia { Id = 3, Nome = "Ilusão", Descricao = "Arte de enganar os sentidos e criar ilusões para confundir inimigos", Elemento = "Arcano" },
+            new EscolaDeMagia { Id = 4, Nome = "Transmutação", Descricao = "Transformação de matéria e mudança de propriedades dos objetos", Elemento = "Terra" },
+            new EscolaDeMagia { Id = 5, Nome = "Adivinhação", Descricao = "Capacidade de prever o futuro e desvendar mistérios ocultos", Elemento = "Éter" },
+            new EscolaDeMagia { Id = 6, Nome = "Abjuração", Descricao = "Proteção através de barreiras mágicas e repulsão de forças negativas", Elemento = "Luz" }
         );
 
         modelBuilder.Entity<Ingrediente>().HasData(
-            new Ingrediente { Id = 1, Nome = "Raiz de Mandragora", Descricao = "Raiz mágica rara", Raridade = "Raro", Quantidade = 10 },
-            new Ingrediente { Id = 2, Nome = "Pó de Osso de Dragão", Descricao = "Resíduo de dragão ancião", Raridade = "Lendario", Quantidade = 3 },
-            new Ingrediente { Id = 3, Nome = "Erva do Sono", Descricao = "Erva comum com propriedades sedativas", Raridade = "Comum", Quantidade = 50 }
+            new Ingrediente { Id = 1, Nome = "Raiz de Mandragora", Descricao = "Raiz de uma planta mágica ancestral com poderes de invocação", Raridade = "Raro", Quantidade = 15 },
+            new Ingrediente { Id = 2, Nome = "Pó de Osso de Dragão", Descricao = "Resíduo pulverizado de ossos de dragão ancião com grande poder mágico", Raridade = "Lendario", Quantidade = 5 },
+            new Ingrediente { Id = 3, Nome = "Erva do Sono", Descricao = "Erva comum com propriedades sedativas naturais", Raridade = "Comum", Quantidade = 100 },
+            new Ingrediente { Id = 4, Nome = "Cristal de Quartzo Azul", Descricao = "Cristal raro que amplifica a magia de adivinhação", Raridade = "Raro", Quantidade = 8 },
+            new Ingrediente { Id = 5, Nome = "Tinta de Kraken", Descricao = "Tinta coletada de um kraken antigo, elemento raro para transmutação", Raridade = "Lendario", Quantidade = 2 },
+            new Ingrediente { Id = 6, Nome = "Pétalas de Flor Noturna", Descricao = "Pétalas que só florescem à noite com propósitos de abjuração", Raridade = "Incomum", Quantidade = 30 }
         );
     }
 }
