@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrimorioDigital")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38de80f5ad5fee78f1f07e09d3d80a483b20603d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e270a2fab397dfd7a892ad9d1c84b06834fa1856")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrimorioDigital")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrimorioDigital")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
