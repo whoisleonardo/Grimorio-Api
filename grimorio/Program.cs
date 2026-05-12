@@ -48,6 +48,9 @@ builder.Services.AddScoped<IEscolaDeMagiaService, EscolaDeMagiaService>();
 builder.Services.AddScoped<IIngredienteRepository, IngredienteRepository>();
 builder.Services.AddScoped<IIngredienteService, IngredienteService>();
 
+builder.Services.AddScoped<IFeiticeiroRepository, FeiticeiroRepository>();
+builder.Services.AddScoped<IFeiticeiroService, FeiticeiroService>();
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendPolicy", policy =>

@@ -67,5 +67,22 @@ public class AppDbContext : DbContext
             new Ingrediente { Id = 5, Nome = "Tinta de Kraken", Descricao = "Tinta coletada de um kraken antigo, elemento raro para transmutação", Raridade = "Lendario", Quantidade = 2 },
             new Ingrediente { Id = 6, Nome = "Pétalas de Flor Noturna", Descricao = "Pétalas que só florescem à noite com propósitos de abjuração", Raridade = "Incomum", Quantidade = 30 }
         );
+
+        modelBuilder.Entity<Usuario>().HasData(
+            new Usuario { Id = 1, Nome = "Merlin", Email = "merlin@grimorio.com", SenhaHash = "hash1", Role = "Admin" },
+            new Usuario { Id = 2, Nome = "Morgana", Email = "morgana@grimorio.com", SenhaHash = "hash2", Role = "Membro" },
+            new Usuario { Id = 3, Nome = "Arthur", Email = "arthur@grimorio.com", SenhaHash = "hash3", Role = "Membro" },
+            new Usuario { Id = 4, Nome = "Gandalf", Email = "gandalf@grimorio.com", SenhaHash = "hash4", Role = "Membro" },
+            new Usuario { Id = 5, Nome = "Dumbledore", Email = "dumbledore@grimorio.com", SenhaHash = "hash5", Role = "Admin" }
+        );
+
+        modelBuilder.Entity<Feiticeiro>().HasData(
+            new Feiticeiro { Id = 1, Nome = "Elara Shadowfire", NivelMagico = 45, Especialidade = "Invocação de Demônios", EscolaDeMagiaId = 1, UsuarioId = 1 },
+            new Feiticeiro { Id = 2, Nome = "Vorthan Bonecaller", NivelMagico = 38, Especialidade = "Controle de Não-Mortos", EscolaDeMagiaId = 2, UsuarioId = 2 },
+            new Feiticeiro { Id = 3, Nome = "Lyssa Deceiver", NivelMagico = 42, Especialidade = "Manipulação de Ilusões", EscolaDeMagiaId = 3, UsuarioId = 3 },
+            new Feiticeiro { Id = 4, Nome = "Theron Transmuter", NivelMagico = 50, Especialidade = "Transformação de Matéria", EscolaDeMagiaId = 4, UsuarioId = 4 },
+            new Feiticeiro { Id = 5, Nome = "Cassandra Foresight", NivelMagico = 55, Especialidade = "Previsão do Futuro", EscolaDeMagiaId = 5, UsuarioId = 5 }
+        );
     }
 }
+

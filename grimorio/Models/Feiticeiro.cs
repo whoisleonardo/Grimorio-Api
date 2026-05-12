@@ -4,9 +4,9 @@ public class Feiticeiro
 {
     public int Id { get; set; }
     public string Nome { get; set; } = string.Empty;
-    public int Nivel { get; set; }
+    public int NivelMagico { get; set; }
+    public string Especialidade { get; set; } = string.Empty;
 
-    // FK
     public int EscolaDeMagiaId { get; set; }
     public EscolaDeMagia EscolaDeMagia { get; set; } = null!;
 
