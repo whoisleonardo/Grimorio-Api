@@ -85,8 +85,6 @@ public class MagiasController : ControllerBase
     {
         try
         {
-            // TODO: [Arquitetura] Camada de serviço acessa DbContext diretamente - implementar padrão Repository
-            // TODO: [Arquitetura] Considerar implementar FluentValidation para regras de negócio complexas
             var magiaResponse = await _magiaService.UpdateMagia(id, updateMagiaDto);
             return Ok(magiaResponse);
         }
