@@ -20,9 +20,6 @@ public class UsuariosController : ControllerBase
         _context = context;
     }
 
-    /// <summary>
-    /// Lista todos os usuários
-    /// </summary>
     [HttpGet]
     [ProducesResponseType(typeof(IEnumerable<UsuarioResponseDto>), 200)]
     public async Task<IActionResult> GetAll()
@@ -40,9 +37,6 @@ public class UsuariosController : ControllerBase
         return Ok(usuarios);
     }
 
-    /// <summary>
-    /// Busca usuário por ID
-    /// </summary>
     [HttpGet("{id}")]
     [ProducesResponseType(typeof(UsuarioResponseDto), 200)]
     [ProducesResponseType(404)]
@@ -61,9 +55,6 @@ public class UsuariosController : ControllerBase
         });
     }
 
-    /// <summary>
-    /// Cadastra novo usuário (não requer autenticação)
-    /// </summary>
     [HttpPost]
     [AllowAnonymous]
     [ProducesResponseType(typeof(UsuarioResponseDto), 201)]
@@ -98,9 +89,6 @@ public class UsuariosController : ControllerBase
         });
     }
 
-    /// <summary>
-    /// Atualiza usuário existente
-    /// </summary>
     [HttpPut("{id}")]
     [ProducesResponseType(typeof(UsuarioResponseDto), 200)]
     [ProducesResponseType(400)]
@@ -134,9 +122,6 @@ public class UsuariosController : ControllerBase
         });
     }
 
-    /// <summary>
-    /// Remove usuário
-    /// </summary>
     [HttpDelete("{id}")]
     [Authorize(Roles = "Admin")]
     [ProducesResponseType(204)]

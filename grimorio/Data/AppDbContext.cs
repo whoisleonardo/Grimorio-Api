@@ -19,11 +19,9 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // Chave composta da tabela pivot
         modelBuilder.Entity<PocaoIngrediente>()
             .HasKey(pi => new { pi.PocaoId, pi.IngredienteId });
 
-        // Relacionamento Pocao <-> Ingrediente (Many-to-Many via PocaoIngrediente)
         modelBuilder.Entity<PocaoIngrediente>()
             .HasOne(pi => pi.Pocao)
             .WithMany(p => p.PocaoIngredientes)
@@ -34,28 +32,24 @@ public class AppDbContext : DbContext
             .WithMany(i => i.PocaoIngredientes)
             .HasForeignKey(pi => pi.IngredienteId);
 
-        // Relacionamento Magia -> EscolaDeMagia
         modelBuilder.Entity<Magia>()
             .HasOne(m => m.EscolaDeMagia)
             .WithMany(e => e.Magias)
             .HasForeignKey(m => m.EscolaDeMagiaId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Relacionamento Feiticeiro -> EscolaDeMagia
         modelBuilder.Entity<Feiticeiro>()
             .HasOne(f => f.EscolaDeMagia)
             .WithMany(e => e.Feiticeiros)
             .HasForeignKey(f => f.EscolaDeMagiaId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Relacionamento Feiticeiro -> Usuario
         modelBuilder.Entity<Feiticeiro>()
             .HasOne(f => f.Usuario)
             .WithMany(u => u.Feiticeiros)
             .HasForeignKey(f => f.UsuarioId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Seed de dados iniciais
         modelBuilder.Entity<EscolaDeMagia>().HasData(
             new EscolaDeMagia { Id = 1, Nome = "Evocação", Descricao = "Magias de invocação de elementos", Elemento = "Fogo" },
             new EscolaDeMagia { Id = 2, Nome = "Necromancia", Descricao = "Magias relacionadas à morte e não-mortos", Elemento = "Sombra" },

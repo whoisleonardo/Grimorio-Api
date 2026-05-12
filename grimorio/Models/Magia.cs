@@ -6,7 +6,7 @@ public class Magia
     public string Nome { get; set; } = string.Empty;
     public string Descricao { get; set; } = string.Empty;
     public int Nivel { get; set; }
-    public string TipoAlvo { get; set; } = string.Empty; // Individual | Area | Aliado
+    public string TipoAlvo { get; set; } = string.Empty; 
 
     // FK
     public int EscolaDeMagiaId { get; set; }

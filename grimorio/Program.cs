@@ -8,20 +8,11 @@ using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ──────────────────────────────────────────
-// 1. Controllers
-// ──────────────────────────────────────────
 builder.Services.AddControllers();
 
-// ──────────────────────────────────────────
-// 2. Entity Framework Core (SQLite)
-// ──────────────────────────────────────────
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ──────────────────────────────────────────
-// 3. JWT Authentication
-// ──────────────────────────────────────────
 var jwtKey = builder.Configuration["Jwt:Key"]!;
 var jwtIssuer = builder.Configuration["Jwt:Issuer"]!;
 var jwtAudience = builder.Configuration["Jwt:Audience"]!;
@@ -47,14 +38,9 @@ builder.Services.AddAuthentication(options =>
 
 builder.Services.AddAuthorization();
 
-// ──────────────────────────────────────────
-// 4. TokenService (injeção de dependência)
-// ──────────────────────────────────────────
 builder.Services.AddScoped<TokenService>();
+builder.Services.AddScoped<IMagiaService, MagiaService>();
 
-// ──────────────────────────────────────────
-// 5. CORS — permite o frontend React
-// ──────────────────────────────────────────
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendPolicy", policy =>
