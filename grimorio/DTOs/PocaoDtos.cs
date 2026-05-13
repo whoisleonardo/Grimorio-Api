@@ -2,34 +2,6 @@ using  System.ComponentModel.DataAnnotations;
 
 namespace GrimorioDigital.DTOs;
 
-// =========================================================
-// Ingrediente DTOs
-// =========================================================
-public class IngredienteCreateDto
-{
-    [Required(ErrorMessage = "Nome do ingrediente é obrigatório")]
-    [StringLength(100, MinimumLength = 2, ErrorMessage = "Nome do ingrediente deve ter entre 2 e 100 caracteres")]
-    public string Nome { get; set; } = string.Empty;
-
-    [Required(ErrorMessage = "Raridade é obrigatória")]
-    [StringLength(20, ErrorMessage = "Raridade deve ter no máximo 20 caracteres")]
-    public string Raridade { get; set; } = string.Empty;
-
-    [StringLength(300, MinimumLength = 5, ErrorMessage = "Descricao deve ter entre 5 e 300 caracteres")]
-    public string Descricao { get; set; } = string.Empty;
-}
-
-public class IngredienteResponseDto
-{
-    public int Id { get; set; }
-    public string Nome { get; set; } = string.Empty;
-    public string Raridade { get; set; } = string.Empty;
-    public string Descricao { get; set; } = string.Empty;
-}
-
-// =========================================================
-// Pocao Ingrediente DTOs 
-// =========================================================
 public class PocaoIngredienteDto
 { 
     [StringLength(100, MinimumLength = 2, ErrorMessage = "Nome do ingrediente deve ter entre 2 e 100 caracteres")]
@@ -49,18 +21,14 @@ public class PocaoIngredienteDto
     public string Descricao { get; set; } = string.Empty;
 }
 
-// =========================================================
-// Pocao Ingrediente DTOs response 
-// =========================================================
+
 public class PocaoIngredienteResponseDto
 {
     public IngredienteResponseDto Ingrediente { get; set; } = new();
     public int QuantidadeNecessaria { get; set; }
 }
 
-// =========================================================
-// Pocao DTOs
-// =========================================================
+
 public class PocaoCreateDto
 {
     [Required(ErrorMessage = "Nome é obrigatório")]

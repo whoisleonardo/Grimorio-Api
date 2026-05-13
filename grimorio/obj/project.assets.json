@@ -3305,19 +3305,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\giova\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\Magia\\Grimorio-Api-magia\\GrimorioDigital.csproj",
+      "projectUniqueName": "C:\\Users\\giova\\Desktop\\grimório\\Grimorio-Api\\grimorio\\GrimorioDigital.csproj",
       "projectName": "GrimorioDigital",
-      "projectPath": "C:\\Users\\User\\Desktop\\Magia\\Grimorio-Api-magia\\GrimorioDigital.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\Magia\\Grimorio-Api-magia\\obj\\",
+      "projectPath": "C:\\Users\\giova\\Desktop\\grimório\\Grimorio-Api\\grimorio\\GrimorioDigital.csproj",
+      "packagesPath": "C:\\Users\\giova\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\giova\\Desktop\\grimório\\Grimorio-Api\\grimorio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\giova\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3386,7 +3386,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.413/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.420/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

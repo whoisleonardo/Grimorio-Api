@@ -41,12 +41,15 @@ builder.Services.AddAuthorization();
 
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<IMagiaService, MagiaService>();
+builder.Services.AddScoped<IPocaoService, PocaoService>();
 
 builder.Services.AddScoped<IEscolaDeMagiaRepository, EscolaDeMagiaRepository>();
 builder.Services.AddScoped<IEscolaDeMagiaService, EscolaDeMagiaService>();
 
 builder.Services.AddScoped<IIngredienteRepository, IngredienteRepository>();
 builder.Services.AddScoped<IIngredienteService, IngredienteService>();
+
+builder.Services.AddScoped<IPocaoRepository, PocaoRepository>();
 
 builder.Services.AddScoped<IFeiticeiroRepository, FeiticeiroRepository>();
 builder.Services.AddScoped<IFeiticeiroService, FeiticeiroService>();
