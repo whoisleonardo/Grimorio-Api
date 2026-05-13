@@ -19,11 +19,9 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        // Chave composta da tabela pivot
         modelBuilder.Entity<PocaoIngrediente>()
             .HasKey(pi => new { pi.PocaoId, pi.IngredienteId });
 
-        // Relacionamento Pocao <-> Ingrediente (Many-to-Many via PocaoIngrediente)
         modelBuilder.Entity<PocaoIngrediente>()
             .HasOne(pi => pi.Pocao)
             .WithMany(p => p.PocaoIngredientes)
@@ -34,38 +32,57 @@ public class AppDbContext : DbContext
             .WithMany(i => i.PocaoIngredientes)
             .HasForeignKey(pi => pi.IngredienteId);
 
-        // Relacionamento Magia -> EscolaDeMagia
         modelBuilder.Entity<Magia>()
             .HasOne(m => m.EscolaDeMagia)
             .WithMany(e => e.Magias)
             .HasForeignKey(m => m.EscolaDeMagiaId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Relacionamento Feiticeiro -> EscolaDeMagia
         modelBuilder.Entity<Feiticeiro>()
             .HasOne(f => f.EscolaDeMagia)
             .WithMany(e => e.Feiticeiros)
             .HasForeignKey(f => f.EscolaDeMagiaId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        // Relacionamento Feiticeiro -> Usuario
         modelBuilder.Entity<Feiticeiro>()
             .HasOne(f => f.Usuario)
             .WithMany(u => u.Feiticeiros)
             .HasForeignKey(f => f.UsuarioId)
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Seed de dados iniciais
         modelBuilder.Entity<EscolaDeMagia>().HasData(
-            new EscolaDeMagia { Id = 1, Nome = "Evocação", Descricao = "Magias de invocação de elementos", Elemento = "Fogo" },
-            new EscolaDeMagia { Id = 2, Nome = "Necromancia", Descricao = "Magias relacionadas à morte e não-mortos", Elemento = "Sombra" },
-            new EscolaDeMagia { Id = 3, Nome = "Ilusão", Descricao = "Magias de engano e ilusão", Elemento = "Arcano" }
+            new EscolaDeMagia { Id = 1, Nome = "Evocação", Descricao = "Escola de magia focada na invocação de seres e elementos poderosos do plano astral", Elemento = "Fogo" },
+            new EscolaDeMagia { Id = 2, Nome = "Necromancia", Descricao = "Escola que manipula as forças da morte e controla criaturas não-mortas", Elemento = "Sombra" },
+            new EscolaDeMagia { Id = 3, Nome = "Ilusão", Descricao = "Arte de enganar os sentidos e criar ilusões para confundir inimigos", Elemento = "Arcano" },
+            new EscolaDeMagia { Id = 4, Nome = "Transmutação", Descricao = "Transformação de matéria e mudança de propriedades dos objetos", Elemento = "Terra" },
+            new EscolaDeMagia { Id = 5, Nome = "Adivinhação", Descricao = "Capacidade de prever o futuro e desvendar mistérios ocultos", Elemento = "Éter" },
+            new EscolaDeMagia { Id = 6, Nome = "Abjuração", Descricao = "Proteção através de barreiras mágicas e repulsão de forças negativas", Elemento = "Luz" }
         );
 
         modelBuilder.Entity<Ingrediente>().HasData(
-            new Ingrediente { Id = 1, Nome = "Raiz de Mandragora", Descricao = "Raiz mágica rara", Raridade = "Raro", Quantidade = 10 },
-            new Ingrediente { Id = 2, Nome = "Pó de Osso de Dragão", Descricao = "Resíduo de dragão ancião", Raridade = "Lendario", Quantidade = 3 },
-            new Ingrediente { Id = 3, Nome = "Erva do Sono", Descricao = "Erva comum com propriedades sedativas", Raridade = "Comum", Quantidade = 50 }
+            new Ingrediente { Id = 1, Nome = "Raiz de Mandragora", Descricao = "Raiz de uma planta mágica ancestral com poderes de invocação", Raridade = "Raro", Quantidade = 15 },
+            new Ingrediente { Id = 2, Nome = "Pó de Osso de Dragão", Descricao = "Resíduo pulverizado de ossos de dragão ancião com grande poder mágico", Raridade = "Lendario", Quantidade = 5 },
+            new Ingrediente { Id = 3, Nome = "Erva do Sono", Descricao = "Erva comum com propriedades sedativas naturais", Raridade = "Comum", Quantidade = 100 },
+            new Ingrediente { Id = 4, Nome = "Cristal de Quartzo Azul", Descricao = "Cristal raro que amplifica a magia de adivinhação", Raridade = "Raro", Quantidade = 8 },
+            new Ingrediente { Id = 5, Nome = "Tinta de Kraken", Descricao = "Tinta coletada de um kraken antigo, elemento raro para transmutação", Raridade = "Lendario", Quantidade = 2 },
+            new Ingrediente { Id = 6, Nome = "Pétalas de Flor Noturna", Descricao = "Pétalas que só florescem à noite com propósitos de abjuração", Raridade = "Incomum", Quantidade = 30 }
+        );
+
+        modelBuilder.Entity<Usuario>().HasData(
+            new Usuario { Id = 1, Nome = "Merlin", Email = "merlin@grimorio.com", SenhaHash = "hash1", Role = "Admin" },
+            new Usuario { Id = 2, Nome = "Morgana", Email = "morgana@grimorio.com", SenhaHash = "hash2", Role = "Membro" },
+            new Usuario { Id = 3, Nome = "Arthur", Email = "arthur@grimorio.com", SenhaHash = "hash3", Role = "Membro" },
+            new Usuario { Id = 4, Nome = "Gandalf", Email = "gandalf@grimorio.com", SenhaHash = "hash4", Role = "Membro" },
+            new Usuario { Id = 5, Nome = "Dumbledore", Email = "dumbledore@grimorio.com", SenhaHash = "hash5", Role = "Admin" }
+        );
+
+        modelBuilder.Entity<Feiticeiro>().HasData(
+            new Feiticeiro { Id = 1, Nome = "Elara Shadowfire", NivelMagico = 45, Especialidade = "Invocação de Demônios", EscolaDeMagiaId = 1, UsuarioId = 1 },
+            new Feiticeiro { Id = 2, Nome = "Vorthan Bonecaller", NivelMagico = 38, Especialidade = "Controle de Não-Mortos", EscolaDeMagiaId = 2, UsuarioId = 2 },
+            new Feiticeiro { Id = 3, Nome = "Lyssa Deceiver", NivelMagico = 42, Especialidade = "Manipulação de Ilusões", EscolaDeMagiaId = 3, UsuarioId = 3 },
+            new Feiticeiro { Id = 4, Nome = "Theron Transmuter", NivelMagico = 50, Especialidade = "Transformação de Matéria", EscolaDeMagiaId = 4, UsuarioId = 4 },
+            new Feiticeiro { Id = 5, Nome = "Cassandra Foresight", NivelMagico = 55, Especialidade = "Previsão do Futuro", EscolaDeMagiaId = 5, UsuarioId = 5 }
         );
     }
 }
+

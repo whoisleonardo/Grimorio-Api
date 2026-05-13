@@ -6,7 +6,5 @@ public class Pocao
     public string Nome { get; set; } = string.Empty;
     public string Efeito { get; set; } = string.Empty;
     public int DuracaoMinutos { get; set; }
-
-    // Navegação
     public ICollection<PocaoIngrediente> PocaoIngredientes { get; set; } = new List<PocaoIngrediente>();
 }
